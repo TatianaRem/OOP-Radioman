@@ -68,11 +68,11 @@ public class RadioTest {
     @Test
     public void shouldSwitchToTheNextNumberOfRadioStationInBorders() {
         Radio rad = new Radio();
-        rad.setCurrentRadioStation(6);
+        rad.setCurrentRadioStation(8);
 
         rad.nextNumberOfCurrentRadioStation();
 
-        int expected = 7;
+        int expected = 9;
         int actual = rad.getCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
@@ -105,13 +105,26 @@ public class RadioTest {
     }
 
     @Test
+    public void shouldSwitchToTheNextNumberOfRadioStationFromTheStartOfBorder2() {
+        Radio rad = new Radio();
+        rad.setCurrentRadioStation(1);
+
+        rad.nextNumberOfCurrentRadioStation();
+
+        int expected = 2;
+        int actual = rad.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldSwitchToThePreviousNumberOfRadioStationInBorders() {
         Radio rad = new Radio();
-        rad.setCurrentRadioStation(8);
+        rad.setCurrentRadioStation(1);
 
         rad.prevNumberOfCurrentRadioStation();
 
-        int expected = 7;
+        int expected = 0;
         int actual = rad.getCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
@@ -144,6 +157,19 @@ public class RadioTest {
     }
 
     @Test
+    public void shouldSwitchToTheNextNumberOfRadioStationAtTheEndBorders() {
+        Radio rad = new Radio();
+        rad.setCurrentRadioStation(9);
+
+        rad.nextNumberOfCurrentRadioStation();
+
+        int expected = 0;
+        int actual = rad.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldIncreaseRadioVolumeAboveBorders() {
         Radio rad = new Radio();
         rad.setCurrentRadioVolume(10);
@@ -170,13 +196,13 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldIncreaseRadioVolumeInTheMiddleOfBorders() {
+    public void shouldIncreaseRadioVolumeInTheEndOfBorders() {
         Radio rad = new Radio();
-        rad.setCurrentRadioVolume(4);
+        rad.setCurrentRadioVolume(9);
 
         rad.increaseRadioVolume();
 
-        int expected = 5;
+        int expected = 10;
         int actual = rad.getCurrentRadioVolume();
 
         Assertions.assertEquals(expected, actual);
