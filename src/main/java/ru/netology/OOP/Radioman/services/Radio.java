@@ -12,8 +12,8 @@ public class Radio {
 
     }
 
-    public Radio( int desiredNumberOfRadioStations) {
-    maxRadioStation = minRadioStation + desiredNumberOfRadioStations;
+    public Radio(int desiredNumberOfRadioStations) {
+        maxRadioStation = minRadioStation + desiredNumberOfRadioStations;
     }
 
     public void nextNumberOfCurrentRadioStation() {
